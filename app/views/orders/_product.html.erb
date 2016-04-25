@@ -1,0 +1,21 @@
+<% @order_items=@order.line_items %>
+
+<h2>Товары в корзине</h1>
+
+  <table>
+      <tr>
+        <th></th>
+        <th>Наименование</th>
+        <th>Количество</th>
+        <th>Цена товара</th>
+        <% @order_items.each do |item| %>
+        <% product=Product.find(item.product_id) %>
+      </tr>
+      <tr>
+        <td><%= image_tag(product.image_url, class: 'list_image', width:'100') %></td>
+        <td><%= product.title %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.total_price %></td>
+      </tr>
+    <% end %>
+  </table>

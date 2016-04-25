@@ -1,0 +1,41 @@
+<div id='order_main'>
+  <table id='order_details'>
+    
+    <tr>
+      <td><strong>Имя:</strong></td>
+      <td><%= @order.name %></td>
+    </tr>
+    
+    <tr>
+      <td><strong>Адрес:</strong></td>
+      <td><%= @order.adress %></td>
+    </tr>  
+  
+    <tr>
+      <td><strong>Почта:</strong></td>
+      <td><%= @order.email %></td>
+    </tr>  
+  
+    <tr>
+      <td><strong>Телефон:</strong></td>
+      <td><%= @order.phone %></td>
+    </tr>  
+    <tr>
+      <td><strong>Вид платежа:</strong></td>
+      <td><%= @order.pay_type %></td>
+    </tr>
+    <tr>
+      <td><strong>Сумма заказа:</strong></td>
+      <td><%= @order.total_price.to_s + ' руб.' %></td>
+    </tr>
+  </table>
+
+  <div id='order_buttons'>
+    <%= link_to 'Edit', edit_order_path(@order) %> |
+    <%= link_to 'Back', orders_path %>
+  </div>
+</div> 
+
+  <div id='order_products'>
+  <%= render 'product' %>
+  </div>
