@@ -10,74 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- * require_tree .
- * require store
- *= require style
- * require orders
- * require responsive
- * require_self
+ *=require_tree .
+ *=require style
+ *=require_self
 */
-
- .main {
-    width: 500px;
-    height: 200px;
-    position: relative;
-    background: #ddd url(//upload.wikimedia.org/wikipedia/commons/2/20/Background_repeat_unit.png) repeat-y -10px top;
-}
-
-
-#notice {
-  color: #000 !important;
-  border: 2px solid red;
-  padding: 1em;
-  margin-bottom: 2em;
-  background-color: #f0f0f0;
-  font: bold smaller sans-serif;
-}
-
-#columns {
-  background: #141;
-
-  #main {
-    margin-left: 25em;
-    padding: 1em;
-    background: white;
-  }
-  #side {
-    float: left;
-    padding: 1em 2em;
-    width:14em;
-    height:40em;
-    background: #141;
-
-    form, div {
-      display: inline;
-    }
-    input {
-      font-size: small;
-    }
- 
-    #cart {
-      font-size: smaller;
-      color: white;
-      
-      table {
-        border-top: 1px dotted #595;
-        border-bottom: 1px dotted #595;
-        margin-bottom: 10px;
-      }
-    }
-    
-    ul {
-      padding: 0;
-      li {
-        list-style: none;
-        a {
-          color: #bfb;
-          font-size: small;
-        }
-      }
-    }
-  }
-}
-

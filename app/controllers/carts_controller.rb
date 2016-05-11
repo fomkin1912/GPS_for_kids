@@ -1,9 +1,10 @@
 class CartsController < ApplicationController
   include CurrentCart
   
-  skip_before_action :authorize, only: [:create, :update, :destroy, :edit]
+  skip_before_action :authorize, only: [:create, :update, :destroy]
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
+  rescue_from ActionController::RoutingError, with: :invalid_route
 
   # GET /carts
   # GET /carts.json
@@ -81,4 +82,8 @@ private
     redirect_to store_path, notice: 'Invalid cart'
   end
   
+  def invalid_route
+    logger.error "Запрашиваемой страницы не существует"
+    redirect_to store_path, notice: "Запрашиваемой страницы не существует"
+  end
 end

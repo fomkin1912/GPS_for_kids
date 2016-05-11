@@ -4,9 +4,8 @@ class LineItemsController < ApplicationController
   skip_before_action :authorize, only: :create
   before_action :set_cart
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
-  after_action :update_order_total_price, only: [:update, :destroy]
+  after_action :update_order_total_price, only: [:update]
   
-
   # GET /line_items
   # GET /line_items.json
   def index
@@ -89,6 +88,10 @@ private
     end
     
     def update_order_total_price
-      @order.update_attributes(total_price: @order.line_items.map(&:total_price).inject(:+))
+      if @order.line_items.empty? 
+        @order.update_attributes(total_price: 0)
+      elsif  
+        @order.update_attributes(total_price: @order.line_items.map(&:total_price).inject(:+))
+      end
     end
 end

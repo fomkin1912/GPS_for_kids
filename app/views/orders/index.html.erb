@@ -10,7 +10,7 @@
         <th>Имя</th>
         <th>Реквизиты</th>
         <th>Статус</th>
-        <th>Сумма заказа</th>
+        <th>Сумма заказа (руб.)</th>
         <th>Валюта</th>
         <th>Вид платежа</th>
         <th colspan="3"></th>
@@ -28,9 +28,8 @@
           <td><%= order.total_price %></td>
           <td>руб</td>
           <td><%= order.pay_type %></td>
-          <td><%= link_to 'Show', order %></td>
-          <td><%= link_to 'Edit', edit_order_path(order) %></td>
-          <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Изменить', order %></td>
+          <td><%= link_to 'Удалить', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
