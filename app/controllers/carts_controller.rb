@@ -1,5 +1,7 @@
 class CartsController < ApplicationController
-  skip_before_action :authorize, only: [:create, :update, :destroy]
+  include CurrentCart
+  
+  skip_before_action :authorize, only: [:create, :update, :destroy, :edit]
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
@@ -66,10 +68,6 @@ class CartsController < ApplicationController
   end
 
 private
-
-  def set_cart
-    @cart = Cart.find(params[:id])
-  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params

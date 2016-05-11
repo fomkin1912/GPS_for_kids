@@ -10,27 +10,36 @@
       </ul>
     </div>
   <% end %>
+  
+    <div class="form-group">
+      <%= f.label :name, 'Имя:', class: 'control-label' %>
+      <%= f.text_field :name, size: 40, placeholder: 'Введите имя', class: 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :adress, 'Адрес:', class: 'control-label' %>
+      <%= f.text_area :adress, rows: 3, cols: 42, placeholder: 'Введите адрес', class: 'form-control' %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.label :email, 'E-mail:', class: 'control-label' %>
+      <%= f.text_field :email, size: 40, class: 'form-control' %>
+    </div>
+      
+    <div class="form-group">
+      <%= f.label :phone, 'Телефон:', class: 'control-label' %>
+      <%= f.text_field :phone, size: 40, class: 'form-control' %>
+    </div>
+  
+    <div class="form-group"> 
+     <%= f.label :pay_type, 'Вариант платежа:', class: 'control-label' %>
+     <%= f.select :pay_type, Order::PAYMENT_TYPES, prompt: 'Выберите вариант платежа' %>
+    </div>  
+  
+    <div class="actions">
+     <%= f.submit 'Сохранить', class: 'btn btn-default' %>
+     <%= link_to 'Назад', :back, class: 'btn btn-default' %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, size: 40, placeholder: 'Введите имя'%>
-  </div>
-  <div class="field">
-    <%= f.label :adress %><br>
-    <%= f.text_area :adress, rows: 3, cols: 40, placeholder: 'Введите адрес' %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email, size: 40 %>
-  </div>
-   <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone, size: 40 %>
-  </div>
-  <div class="field">
-    <%= f.select :pay_type, Order::PAYMENT_TYPES, prompt: 'Select a payment method' %>
-  </div>
-  <div class="actions">
-   <%= f.submit 'Place Order' %>
-  </div>
+    </div>
+
 <% end %>

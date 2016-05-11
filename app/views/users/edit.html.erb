@@ -1,6 +1,9 @@
-<h1>Editing User</h1>
+<div class="depot_form container">
+  <fieldset>
+    <legend>Редактировать пользователя</legend>
+    <%= render 'form' %>
+  </fieldset>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Показать', @user %> |
+<%= link_to 'Назад', users_path %>

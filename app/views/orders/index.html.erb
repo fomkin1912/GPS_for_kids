@@ -1,39 +1,40 @@
-<h1>Список заказов</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Номер</th>
-      <th>Дата</th>
-      <th>Имя</th>
-      <th>Реквизиты</th>
-      <th>Статус</th>
-      <th>Сумма заказа</th>
-      <th>Валюта</th>
-      <th>Вид платежа</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orders.each do |order| %>
+<div class= 'container' >
+  <div class= <%= controller.controller_name %> >
+  <h1>Список заказов</h1>
+  
+  <table class='table table-bodered'>
+    <thead>
       <tr>
-        <td><%= order.id %></td>
-        <td><%= order.created_at.strftime("%d.%m.%Y") %></td>
-        <td><%= order.name %></td>
-        <td><%= order.adress.to_s + ', '+ order.email.to_s + ', ' + order.phone.to_s %></td>
-        <td><%= order.status %></td>
-        <td><%= order.total_price %></td>
-        <td>руб</td>
-        <td><%= order.pay_type %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Номер</th>
+        <th>Дата</th>
+        <th>Имя</th>
+        <th>Реквизиты</th>
+        <th>Статус</th>
+        <th>Сумма заказа</th>
+        <th>Валюта</th>
+        <th>Вид платежа</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+  
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.id %></td>
+          <td><%= order.created_at.strftime("%d.%m.%Y") %></td>
+          <td><%= order.name %></td>
+          <td><%= order.adress.to_s + ', '+ order.email.to_s + ', ' + order.phone.to_s %></td>
+          <td><%= order.status %></td>
+          <td><%= order.total_price %></td>
+          <td>руб</td>
+          <td><%= order.pay_type %></td>
+          <td><%= link_to 'Show', order %></td>
+          <td><%= link_to 'Edit', edit_order_path(order) %></td>
+          <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<br>
-
-<%= link_to 'New Order', new_order_path %>
+  </div>
+</div>

@@ -7,6 +7,7 @@ class Order < ActiveRecord::Base
   validates :name, :adress, :email, :phone, :status, :pay_type, presence: true
   validates :pay_type, inclusion: PAYMENT_TYPES
   validates :status, inclusion: STATUS_TYPES
+  validates :total_price, presence: true, numericality: {greater_than_or_equal_to: 0}
   
   def add_line_items_from_cart(cart)
       cart.line_items.each do |item|
@@ -14,4 +15,5 @@ class Order < ActiveRecord::Base
       line_items << item
       end
   end
+  
 end

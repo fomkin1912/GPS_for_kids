@@ -1,17 +1,25 @@
-<%= form_for(@cart) do |f| %>
-  <% if @cart.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@cart.errors.count, "error") %> prohibited this cart from being saved:</h2>
-
-      <ul>
-      <% @cart.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<h2>Товары</h2>
+  <table class='table table-bodered'>
+      <tr>
+          <th></th>
+          <th>Наименование</th>
+          <th>Количество</th>
+          <th>Цена за единицу (руб.)</th>
+          <th>Итого (руб.)</th>
+          <th colspan='3'></th>
+          <% @cart.line_items.each do |item| %>
+          <% product=Product.find_by(id: item.product_id) %>
+      </tr>
+      <tr>
+          <td></td>
+          <td><%= product.title %></td>
+          <td><%= item.quantity %></td>
+          <td><%= product.price %></td>
+          <td><%= item.total_price %></td>
+          <% end %>
+      </tr>
+      <tr>
+          <th colspan='4'></th>
+          <th><%= @cart.line_items.map(&:total_price).inject(:+) %> </th>
+      </tr>
+</table>

@@ -4,43 +4,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .store {
-   h1 {
-     padding-bottom: 0.5em;
-     font: 150% sans-serif;
-     color: #226;
-     border-bottom: 3px dotted #77d;
-   }
 #full_img {
-     width: 200px;
+       width: 200px;
        margin-left: 5px;
        margin-bottom: 5px;
        position: absolute;
    } 
    .entry {
-     overflow: auto;
-     margin-top: 1em;
-     border-bottom: 1px dotted #77d;
-     min-height: 100px;
-     img {
-       width: 80px;
-       margin-left: 5px;
-       margin-bottom: 5px;
-       position: absolute;
-     }
-     h3 {
-       font-size: 120%;
-       font-family: sans-serif;
-       margin-left: 100px;
-       margin-top: 0;
-       margin-bottom: 2px;
-       color: #227;
-     }
-     p, div.price_line {
-       margin-left: 100px;
-       margin-top: 0.5em;
-       margin-bottom: 0.8em;
-     }
-     .price {
+      .price {
        color: #44a;
        font-weight: bold;
        margin-right: 3em;
@@ -50,8 +21,7 @@
      /* Add to cart button*/
      
      p, div.price_line {
-       margin-left: 100px;
-       margin-top: 0.5em;
+        margin-top: 0.5em;
        margin-bottom: 0.8em;
      
        form, div {

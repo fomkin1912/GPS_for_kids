@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get 'store_full_img' => 'store#full_img'
   get 'home' => 'store#home'
   get 'payments' => 'store#payments'
+  get 'about' => 'store#about'
+  get 'contacts' => 'store#contacts'
   
     root 'store#home'
  

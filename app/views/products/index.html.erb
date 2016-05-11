@@ -1,24 +1,31 @@
-<h1>Список товаров</h1>
-  <table>
-  <% @products.each do |product| %>
-    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-      <td>
-      <%= image_tag(product.image_url, class: 'list_image') %>
-      </td>
-      <td class="list_description">
-        <dl>
-        <dt><%= product.title %></dt>
-          <dd><%= truncate(strip_tags(product.description), length: 80) %></dd>
-        </dl>
-      </td>
-      <td class="list_actions">
-        <%= link_to 'Show', product %><br/>
-        <%= link_to 'Edit', edit_product_path(product) %><br/>
-        <%= link_to 'Destroy', product, method: :delete,
-        data: { confirm: 'Are you sure?' } %>
-      </td>
-    </tr>
+<div class='container'>
+
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+    <div class='page-header'>
+        <h1>Список товаров</h1>
+    </div>
+    <% @products.in_groups_of(3,false).each do |group| %>
+        <div class="row">    
+        <% group.each do |product| %>
+            <div class="col-sm-6 col-md-4 entry">
+                <div class="thumbnail">        
+                    <%= image_tag('products/small_'+product.image_url, class: 'list_image') %>
+                        <div class="caption">
+                        <h3> <%= product.title %></h3>
+                        <p> <%= sanitize(product.description) %> </p>
+                        <p><span class="price"><%= number_to_currency(product.price) %></span></p>
+                            <div class="price_line">
+                                <%= button_to 'Изменить', edit_product_path(product), method: :get, class: "btn btn-primary" %>
+                                <%= button_to 'Удалить', product, method: :delete, class: "btn btn-primary", data: { confirm: 'Are you sure?' } %>
+                            </div>
+                         </div>
+                </div>    
+            </div>    
+        <% end %>
+        </div>
     <% end %>
-  </table>
-<br />
-<%= link_to 'New product', new_product_path %>
+    <%= link_to 'Добавить новый товар', new_product_path, class: 'btn btn-default' %>
+</div>

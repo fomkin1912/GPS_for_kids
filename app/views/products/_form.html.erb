@@ -11,23 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title, 'Наименование', class: 'control-label' %>
+    <%= f.text_field :title, size: 40, placeholder: 'Введите наименование товара', class: 'form-control'  %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label :description, 'Описание', class: 'control-label' %>
+    <%= f.text_area :description, size: 40, placeholder: 'Введите описание товара', class: 'form-control'  %>
   </div>
-  <div class="field">
-    <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
+  <div class="form-group">
+    <%= f.label :image_url, 'Картинка', class: 'control-label' %>
+    <%= f.text_field :image_url, size: 40, placeholder: 'Введите имя файла', class: 'form-control'  %>
   </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
+  <div class="form-group">
+    <%= f.label :price, 'Цена', class: 'control-label' %>
+    <%= f.text_field :price, size: 40, placeholder: 'Введите цену', class: 'form-control'  %>
   </div>
   <div class="actions">
-    <%= f.submit "Save changes", class: "button" %>
+    <%= f.submit "Сохранить", class: "btn btn-default" %>
+    <%= link_to 'К списку товаров', products_path, class: 'btn btn-default' %>
   </div>
 <% end %>

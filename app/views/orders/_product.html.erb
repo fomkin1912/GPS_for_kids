@@ -1,21 +1,25 @@
-<% @order_items=@order.line_items %>
-
-<h2>Товары в корзине</h1>
-
-  <table>
+<h2>Товары в корзине</h2>
+  <table class='table table-bodered'>
       <tr>
         <th></th>
         <th>Наименование</th>
         <th>Количество</th>
-        <th>Цена товара</th>
-        <% @order_items.each do |item| %>
+        <th>Цена за единицу (руб.)</th>
+        <th>Итого (руб.)</th>
+        <th colspan='3'></th>
+        <% @order.line_items.each do |item| %>
         <% product=Product.find(item.product_id) %>
       </tr>
       <tr>
-        <td><%= image_tag(product.image_url, class: 'list_image', width:'100') %></td>
+        <td></td>
         <td><%= product.title %></td>
         <td><%= item.quantity %></td>
+        <td><%= product.price %></td>
         <td><%= item.total_price %></td>
+        <td><%= link_to 'Edit', edit_line_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
       </tr>
     <% end %>
   </table>

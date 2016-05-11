@@ -1,5 +1,11 @@
 class SessionsController < ApplicationController
   
+include CurrentCart
+before_action :set_cart, only: [:new, :create]
+
+ skip_before_action :authorize, only: [:new, :create]
+ before_action :set_cart, only: [:new, :create]
+
   def new
   end
 
@@ -17,5 +23,5 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to store_url, notice: "Logged out"
   end
-  
+
 end

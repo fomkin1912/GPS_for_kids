@@ -1,6 +1,12 @@
-<div id='order_main'>
-  <table id='order_details'>
-    
+<div class= 'container'>
+  
+    <% if flash[:notice] %>
+    <p id="notice"><%= flash[:notice] %></p>
+  <% end %>
+
+<h2>Данные заказа</h2>
+
+  <table class = 'table table-bodered'>
     <tr>
       <td><strong>Имя:</strong></td>
       <td><%= @order.name %></td>
@@ -29,13 +35,18 @@
       <td><%= @order.total_price.to_s + ' руб.' %></td>
     </tr>
   </table>
-
+  
   <div id='order_buttons'>
-    <%= link_to 'Edit', edit_order_path(@order) %> |
-    <%= link_to 'Back', orders_path %>
+      <%= link_to 'Редактировать заказ', edit_order_path(@order), class: 'btn btn-default' %>
   </div>
-</div> 
 
   <div id='order_products'>
-  <%= render 'product' %>
+      <%= render 'product' %>
   </div>
+  
+  <div id='order_buttons'>
+      <%= link_to 'Назад', orders_path, class: 'btn btn-default' %>
+  </div>
+
+  
+</div> 

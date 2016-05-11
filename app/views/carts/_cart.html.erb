@@ -1,11 +1,10 @@
-<table>
-  <h2>Your Cart</h2>
-      <%= render (cart.line_items) %>
-         <tr class="total_line">
-          <td colspan="2">Total</td>
-          <td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
-        </tr>
-</table>
-        
-      <%= button_to 'Checkout', new_order_path, method: :get %>
-      <%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+<ul id='cart' class="nav navbar-nav navbar-right">
+  <% if cart.line_items.empty? then %>
+    <li>0 item(s) - 0.00 руб.</li>
+  <% else %>
+    <li><%= cart.line_items.count.to_s+' item(s) - '+number_to_currency(cart.total_price) %></li>
+    <li><%= link_to 'Оформить', new_order_path, method: :get %></li>
+    <li><%= link_to 'Очистить', cart, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  <% end %>
+<p> <%= link_to '', edit_cart_path(cart) %></p>
+</ul>

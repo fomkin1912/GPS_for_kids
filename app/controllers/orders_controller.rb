@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
 
 include CurrentCart
-  skip_before_action :authorize, only: [:new, :create]
-  before_action :set_cart, only: [:new, :create]
+  before_action :set_cart
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorize, only: [:new, :create]
+
 
   # GET /orders
   # GET /orders.json
@@ -22,7 +23,6 @@ include CurrentCart
       redirect_to store_path, notice: "Your cart is empty"
       return
     end
-    
     @order = Order.new
   end
 
@@ -36,6 +36,7 @@ include CurrentCart
     @order = Order.new(order_params)
     @order.total_price=@cart.total_price
     @order.add_line_items_from_cart(@cart)
+    
       respond_to do |format|
       if @order.save
            Cart.destroy(session[:cart_id])
@@ -53,9 +54,10 @@ include CurrentCart
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
+    
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+        format.html { redirect_to @order, notice: 'Order was successfully updated.'}
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit }
@@ -82,6 +84,6 @@ include CurrentCart
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :adress, :email, :phone, :pay_type)
+      params.require(:order).permit(:name, :adress, :email, :phone, :pay_type, :total_price)
     end
 end

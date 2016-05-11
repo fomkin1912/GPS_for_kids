@@ -11,15 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :product_id %><br>
-    <%= f.text_field :product_id %>
+  <div class="form-group">
+    <%= f.label :product_id, 'Наименование:', class: 'control-label' %>
+    <%= Product.find(@line_item.product_id).title %>
   </div>
-  <div class="field">
-    <%= f.label :cart_id %><br>
-    <%= f.text_field :cart_id %>
+  
+   <div class="form-group">
+    <%= f.label :quantity, 'Количество товара:', class: 'control-label' %>
+    <%= f.number_field :quantity, class: 'form-control' %>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Сохранить', class: 'btn btn-default'%>
+    <%= link_to 'Назад', :back, class: 'btn btn-default'%>
   </div>
 <% end %>

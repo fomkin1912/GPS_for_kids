@@ -10,72 +10,21 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
- */
- 
-/*.main {
+ * require_tree .
+ * require store
+ *= require style
+ * require orders
+ * require responsive
+ * require_self
+*/
+
+ .main {
     width: 500px;
     height: 200px;
     position: relative;
     background: #ddd url(//upload.wikimedia.org/wikipedia/commons/2/20/Background_repeat_unit.png) repeat-y -10px top;
 }
-*/
 
-.outer-mask {
-    position: absolute;
-    left: 50px;
-    top: 10px;
-    width: 200px;
-    height: 90px;
-    overflow: hidden;
-    -webkit-transform: skew(10deg, 0deg);
-        -ms-transform: skew(10deg, 0deg);
-         -o-transform: skew(10deg, 0deg);
-            transform: skew(10deg, 0deg);
-}
-.inner-mask {
-    position: absolute;
-    left: -45px;
-    top: 0px;
-    width: 200px;
-    height: 90px;
-    overflow: hidden;
-    -webkit-transform: skew(-25deg, 0deg);
-        -ms-transform: skew(-25deg, 0deg);
-         -o-transform: skew(-25deg, 0deg);
-            transform: skew(-25deg, 0deg);
-}
-
-.content {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 200px;
-    height: 90px;
-    line-height: 45px;
-    background-color: silver;
-    background-image: -webkit-linear-gradient(top, silver, gray);
-    background-image:     -ms-linear-gradient(top, silver, gray);
-    background-image:      -o-linear-gradient(top, silver, gray);
-    background-image:         linear-gradient(top, silver, gray);
-    background-image:    -moz-linear-gradient(top, silver, gray);
-}
-
-
-#banner {
-  background: #9c9;
-  top: 0px;
-  padding: 10px;
-  border-bottom: 2px solid;
-  font: small-caps 40px/40px "Times New Roman", serif;
-  color: #282;
-  text-align: center;
-  
-  img {
-    float: left;
-  }
-}
 
 #notice {
   color: #000 !important;
@@ -132,34 +81,3 @@
   }
 }
 
-.depot_form {
-  fieldset {
-    background: #efe;
-    
-      legend {
-        color: #dfd;
-        background: #141;
-        font-family: sans-serif;
-        padding: 0.2em 1em;
-    }
-  }
-  form {
-    label {
-      width: 5em;
-      float: left;
-      text-align: right;
-      padding-top: 0.2em;
-      margin-right: 0.1em;
-      display: block;
-    }
-    select, textarea, input {
-      margin-left: 0.5em;
-    }
-  .submit {
-    margin-left: 4em;
-  }
-  br {
-    display: none
-  }
-}
-}
