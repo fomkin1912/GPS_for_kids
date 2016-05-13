@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/ludicast/yaml_db.git
+  revision: f08c1ce48d823d1700bd76414a14c55d7fce3c81
+  specs:
+    yaml_db (0.3.0)
+      rails (>= 3.0, < 4.3)
+      rake (>= 0.8.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -225,6 +233,7 @@ DEPENDENCIES
   turbolinks (= 2.3.0)
   uglifier (= 2.5.3)
   web-console (= 2.0.0.beta3)
+  yaml_db!
 
 BUNDLED WITH
    1.11.2
